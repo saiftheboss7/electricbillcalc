@@ -1,0 +1,51 @@
+{% extends 'result.html' %}
+
+{% block content %}
+    <h1>Bill for {{ units }} Units</h1>
+    
+    <table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Range</th>
+      <th>Price/Unit</th>
+      <th>Unit</th>
+      <th>Bill</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1-75</th>
+      <td>3.80</td>
+      <td>{{unit}}</td>
+      <td>{{total}}</td>
+    </tr>
+    <tr>
+      <th scope="row">76-200</th>
+      <td>Jacob</td>
+      <td>Thornton</td>
+      <td>@fat</td>
+    </tr>
+    <tr>
+      <th scope="row">201-300</th>
+      <td colspan="2">Larry the Bird</td>
+      <td>@twitter</td>
+    </tr>
+    <tr>
+      <th scope="row">301-400</th>
+      <td colspan="2">Larry the Bird</td>
+      <td>@twitter</td>
+    </tr>
+    <tr>
+      <th scope="row">401-600</th>
+      <td colspan="2">Larry the Bird</td>
+      <td>@twitter</td>
+    </tr>
+    <tr>
+      <th scope="row">601 - Last</th>
+      <td colspan="2">Larry the Bird</td>
+      <td>@twitter</td>
+    </tr>
+  </tbody>
+</table>
+
+{% endblock %}
