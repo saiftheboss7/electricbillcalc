@@ -2,50 +2,48 @@
 
 {% block content %}
     <h1>Bill for {{ units }} Units</h1>
-    
-    <table class="table table-hover">
-  <thead>
+
+    <p class="lead">
+        Calculation Logic:
+        First 75 Unit Price = 3.80 tk, 
+        Next 125-200 Per Unit Price = 5.14 tk
+        Next 200-300 Per Unit Price = 5.36 tk
+        Next 300-400 Per Unit Price = 5.63 tk
+        Next 400-600 Per Unit Price = 8.70 tk
+        Next 600 - Later Per Unit Price = 9.98 tk
+       </p>
+
+<div>
+<table class="table table-hover">
+    <thead>
     <tr>
-      <th>Range</th>
-      <th>Price/Unit</th>
       <th>Unit</th>
       <th>Bill</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th scope="row">1-75</th>
-      <td>3.80</td>
-      <td>{{unit}}</td>
+      <th scope="row">{{units}}</th>
+      <td>{{total}}</td>
+    </tr>
+    
+    <tr>
+      <th>Total</th>
       <td>{{total}}</td>
     </tr>
     <tr>
-      <th scope="row">76-200</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
+      <th>With 55 taka Meter Bill</th>
+      <td>{{meterbill}}</td>
     </tr>
     <tr>
-      <th scope="row">201-300</th>
-      <td colspan="2">Larry the Bird</td>
-      <td>@twitter</td>
+      <th>Vat 5%</th>
+      <td>{{vat}}</td>
     </tr>
     <tr>
-      <th scope="row">301-400</th>
-      <td colspan="2">Larry the Bird</td>
-      <td>@twitter</td>
+      <th>Grand Total</th>
+      <td>{{gtotal}}</td>
     </tr>
-    <tr>
-      <th scope="row">401-600</th>
-      <td colspan="2">Larry the Bird</td>
-      <td>@twitter</td>
-    </tr>
-    <tr>
-      <th scope="row">601 - Last</th>
-      <td colspan="2">Larry the Bird</td>
-      <td>@twitter</td>
-    </tr>
-  </tbody>
-</table>
 
+  </tbody></table>
+</div>
 {% endblock %}

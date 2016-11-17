@@ -13,13 +13,14 @@ def expression(request):
     if form.is_valid():
       units = int(form.cleaned_data['Unit'])
       rates = [3.80, 5.14, 5.36, 5.63, 8.70, 9.98]
+      subt = [75*rates[0],125*rates[1],100*rates[2],100*rates[3],200*rates[4]]
 
       if units<=75:
-      	total = units * rates[0]
+        total = units * rates[0]
       if 76 <= units <= 200:
       	total = 75 * rates[0] + (units-75) * rates[1]
       if 201 <= units <= 300:
-      	total = 75 * rates[0] + 125 * rates[1] + (units-200) * rates [2]
+      	total = 75 * rates[0] + 125 * rates[1] + (units-200) * rates [2]  	
       if 301 <= units <= 400:
       	total = 75 * rates[0] + 125 * rates[1] + 100 * rates [2] + (units-300) * rates[3]
       if 401 <= units <= 600:
@@ -27,4 +28,9 @@ def expression(request):
       if units > 600:
       	total = 75 * rates[0] + 125 * rates[1] + 100 * rates [2] + 100 * rates[3] + 200 * rates[4] + (units-600) * 9.98
 
-      return render(request, 'table.html', {'total':total, 'units':units})
+
+      meterbill=total+55
+      vat=meterbill*.05
+      gtotal=meterbill + meterbill*.05
+    
+    return render(request, 'table.html', {'total':total, 'units':units, 'rates':rates, 'subt':subt, 'meterbill':meterbill, 'vat':vat, 'gtotal':gtotal})
